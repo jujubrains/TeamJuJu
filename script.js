@@ -19,6 +19,7 @@ function toDoRender(){
   for(var i = 0; i < todos.length; i++){
     // console.log(i)
    // make new elementDo
+    var listItem = document.createElement('li')
     var completeButton = document.createElement('button'); 
     completeButton.innerText = 'complete'; 
     completeButton.setAttribute('type', 'button')
@@ -28,18 +29,18 @@ function toDoRender(){
     todoList.appendChild(listItem); 
     listItem.appendChild(completeButton); 
     console.log(todos[i])
-  //addToList(listItem); 
   }
 }
 toDoRender();
 //render();
 
-function addToList(listItem){
-
-  var listItem = document.createElement('li'); 
-  listItem.innerText = todoInput.value;
-  todos.push(listItem);  
-  todoList.appendChild(listItem); 
+function addToList(event){
+  event.preventDefault(); 
+  var newListItem = document.createElement('li'); 
+  newListItem.innerText = todoInput.value;
+  
+  todos.push(newListItem);  
+  todoList.appendChild(newListItem); 
 
 }
 //Create new to do element 
