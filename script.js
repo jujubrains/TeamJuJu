@@ -23,14 +23,16 @@ function render(){
     console.log(todos[i])
 
   }
+  addToList(listItem); 
 }
 render();
 
+function addToList(listItem){
 
-  //var listItem = document.createElement('p'); 
-  //listItem.innerText = todoInput.value; 
-  //todoList.appendChild(listItem); 
-  
+  var listItem = document.createElement('li'); 
+  listItem.innerText = todoInput.value; 
+  todoList.appendChild(listItem); 
+}
 
 
 //Create new to do element 
@@ -49,7 +51,7 @@ render();
 
 
 //counter function 
-//todoInput.addEventListener('click', render); 
+todoInput.addEventListener('submit', addToList); 
 
 
 
