@@ -4,6 +4,8 @@ var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 
 var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
+var listItem = document.createElement('li');
+
 var userInput = [ 
 
 ]
@@ -11,30 +13,35 @@ var index = 0;
 //Starter Game Render ToDo
 //empty array
 
-function render(){
+function toDoRender(){
+
   //todoList.appendChild(todos); 
-
   for(var i = 0; i < todos.length; i++){
-    //console.log(i)
-    //make new element
-    var listItem = document.createElement('li');
+    // console.log(i)
+   // make new elementDo
+    var completeButton = document.createElement('button'); 
+    completeButton.innerText = 'complete'; 
+    completeButton.setAttribute('type', 'button')
     listItem.innerText = todos[i] 
+    // todos.push(listItem); 
+    // console.log(todos);
     todoList.appendChild(listItem); 
+    listItem.appendChild(completeButton); 
     console.log(todos[i])
-
+  //addToList(listItem); 
   }
-  addToList(listItem); 
 }
-render();
+toDoRender();
+//render();
 
 function addToList(listItem){
 
   var listItem = document.createElement('li'); 
-  listItem.innerText = todoInput.value; 
+  listItem.innerText = todoInput.value;
+  todos.push(listItem);  
   todoList.appendChild(listItem); 
+
 }
-
-
 //Create new to do element 
 //Listen for the submit
 // Make toDo Element
@@ -42,18 +49,6 @@ function addToList(listItem){
 //add it to the to do data
 //append/re-display it to the page
 
-
-
-
-//Remove to do elements
-
-
-
-
-//counter function 
-todoInput.addEventListener('submit', addToList); 
-
-
-
-
-
+todoForm.addEventListener('submit', addToList); 
+// //Remove to do elements
+// //counter function 
